@@ -8,16 +8,17 @@ import { MovieComponent } from './components/movie/movie.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketBookingComponent } from './components/ticket-booking/ticket-booking.component';
 import { RouterGuardService } from './services/router-guard.service';
+import { AuthguardService } from './services/authguard.service';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'register',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
   {path:'forget',component:ForgetPasswordComponent},
-  {path:'home',component:HomeComponent},
-  {path:'createMovie',component:MovieComponent},
-  {path:'ticket',component:TicketComponent},
-  {path:'booking',component:TicketBookingComponent}
+  {path:'home',component:HomeComponent,canActivate:[AuthguardService]},
+  {path:'createMovie',component:MovieComponent,canActivate:[AuthguardService]},
+  {path:'ticket',component:TicketComponent,canActivate:[AuthguardService]},
+  {path:'booking',component:TicketBookingComponent,canActivate:[AuthguardService]}
 ];
 
 @NgModule({

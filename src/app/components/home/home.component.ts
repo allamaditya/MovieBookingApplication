@@ -55,6 +55,21 @@ export class HomeComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  logout(){
+
+   localStorage.removeItem('isLogined')
+    
+     localStorage.removeItem('token')
+    
+   localStorage.removeItem('roles')
+    
+    localStorage.removeItem('movieName')
+    
+  localStorage.removeItem('error')
+    
+   this.router.navigate(['/login'])
+    
+ }
 
 }
 
