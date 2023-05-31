@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class RouterGuardService implements CanActivate {
 
   constructor(private routObj: Router) { }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
     alert("you cannot access this component without login!");
     this.routObj.navigate(['/login']);

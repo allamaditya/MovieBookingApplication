@@ -9,19 +9,19 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieComponent } from './components/movie/movie.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketBookingComponent } from './components/ticket-booking/ticket-booking.component';
-import {MatSelectModule} from '@angular/material/select';
-import { MatInputModule} from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input'
 
 
 @NgModule({

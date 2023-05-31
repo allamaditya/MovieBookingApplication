@@ -9,21 +9,21 @@ import { TicketService } from 'src/app/services/ticket.service';
   styleUrls: ['./ticket-booking.component.css']
 })
 export class TicketBookingComponent implements OnInit {
-  movieName:any=localStorage.getItem('movieName');
-  constructor(private ticketService:TicketService,private router:Router) { }
+  movieName: any = localStorage.getItem('movieName');
+  constructor(private ticketService: TicketService, private router: Router) { }
 
-  bookingForm=new FormGroup({
-    theaterName:new FormControl(''),
-    seatBooked:new FormControl(''),
-    address:new FormControl('')
+  bookingForm = new FormGroup({
+    theaterName: new FormControl(''),
+    seatBooked: new FormControl(''),
+    address: new FormControl('')
   })
 
   ngOnInit(): void {
   }
 
-  bookTicket(){
-    this.ticketService.bookTicket(this.bookingForm.value,this.movieName).subscribe(res=>{
-      window.alert("Booking Confirm !!! \n"+this.movieName)
+  bookTicket() {
+    this.ticketService.bookTicket(this.bookingForm.value, this.movieName).subscribe(res => {
+      window.alert("Booking Confirm !!! \n" + this.movieName)
       this.router.navigate(['/home'])
     })
   }

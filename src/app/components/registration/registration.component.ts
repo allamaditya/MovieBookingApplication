@@ -10,31 +10,31 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  user:User|any;
+  user: User | any;
 
-  registrationForm=new FormGroup({
-    loginId:new FormControl(''),
-    firstName:new FormControl(''),
-    lastName:new FormControl(''),
-    email:new FormControl(''),
-    password:new FormControl(''),
-    confirmPassword:new FormControl(''),
-    contactNumber:new FormControl(''),
-    roles:new FormControl(''),
-    secretQuestion:new FormControl(''),
-    answer:new FormControl('')
+  registrationForm = new FormGroup({
+    loginId: new FormControl(''),
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    confirmPassword: new FormControl(''),
+    contactNumber: new FormControl(''),
+    roles: new FormControl(''),
+    secretQuestion: new FormControl(''),
+    answer: new FormControl('')
   });
 
-  getRegistrationFormData(){
+  getRegistrationFormData() {
     console.log(this.registrationForm.value)
   }
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
-  registerUser(){
-    this.userService.registerUser(this.registrationForm.value).subscribe(data=>{
+  registerUser() {
+    this.userService.registerUser(this.registrationForm.value).subscribe(data => {
       console.log(data)
     })
   }

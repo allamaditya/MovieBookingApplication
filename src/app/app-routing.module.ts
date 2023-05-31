@@ -11,14 +11,14 @@ import { RouterGuardService } from './services/router-guard.service';
 import { AuthguardService } from './services/authguard.service';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path:'register',component:RegistrationComponent},
-  {path:'login',component:LoginComponent},
-  {path:'forget',component:ForgetPasswordComponent},
-  {path:'home',component:HomeComponent,canActivate:[AuthguardService]},
-  {path:'createMovie',component:MovieComponent,canActivate:[AuthguardService]},
-  {path:'ticket',component:TicketComponent,canActivate:[AuthguardService]},
-  {path:'booking',component:TicketBookingComponent,canActivate:[AuthguardService]}
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forget', component: ForgetPasswordComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthguardService] },
+  { path: 'createMovie', component: MovieComponent, canActivate: [AuthguardService] },
+  { path: 'ticket', component: TicketComponent, canActivate: [AuthguardService] },
+  { path: 'booking', component: TicketBookingComponent, canActivate: [AuthguardService] }
 ];
 
 @NgModule({

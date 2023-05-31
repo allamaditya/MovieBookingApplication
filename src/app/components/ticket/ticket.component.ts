@@ -7,14 +7,14 @@ import { TicketService } from 'src/app/services/ticket.service';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
-  data:any[]=[]
-  displayedColumns: string[] = ['transactionId', 'movieName', 'theaterName', 'seatBooked','address','bookingDate','bookingTime'];
-  dataSource:any[]=[];
-  constructor(private ticketService:TicketService) { }
+  data: any[] = []
+  displayedColumns: string[] = ['transactionId', 'movieName', 'theaterName', 'seatBooked', 'address', 'bookingDate', 'bookingTime'];
+  dataSource: any[] = [];
+  constructor(private ticketService: TicketService) { }
 
   ngOnInit(): void {
-    this.ticketService.getAllTicket().subscribe(res=>{
-      this.dataSource=res
+    this.ticketService.getAllTicket().subscribe(res => {
+      this.dataSource = res
     })
   }
 

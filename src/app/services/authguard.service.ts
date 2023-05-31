@@ -8,21 +8,21 @@ export class AuthguardService implements CanActivate {
 
   constructor(private routObj: Router) { }
 
-canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-const isLogin=localStorage.getItem('isLogined')
+    const isLogin = localStorage.getItem('isLogined')
 
-if(isLogin==='true'){
+    if (isLogin === 'true') {
 
-return true
+      return true
 
-}
+    }
 
-alert("you cannot access this component without login!");
+    alert("you cannot access this component without login!");
 
-this.routObj.navigate(['/login']);
+    this.routObj.navigate(['/login']);
 
-return false;
+    return false;
 
- }
+  }
 }
