@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  url_register = 'http://localhost:8081/auth/v1/addUser'
-  url_login = 'http://localhost:8081/auth/v1/login'
+  url_register = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service/register'
+  url_login = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service'
 
   constructor(private http: HttpClient) { }
 
@@ -21,11 +21,11 @@ export class UserService {
     let headers = new HttpHeaders().set("Access-Control-Allow-Origin", "*")
     return this.http.post<loginResponse>(this.url_login, userDetails);
   }
-  getAllUser(): Observable<User[]> {
-    let headers = new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)
-      .set("Access-Control-Allow-Origin", "*")
-    return this.http.get<User[]>('http://localhost:8082/api/v1.0/moviebooking/getAllUsers', { headers });
-  }
+  // getAllUser(): Observable<User[]> {
+  //   let headers = new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)
+  //     .set("Access-Control-Allow-Origin", "*")
+  //   return this.http.get<User[]>('http://localhost:8082/api/v1.0/moviebooking/getAllUsers', { headers });
+  // }
 
 
 }
