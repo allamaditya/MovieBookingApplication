@@ -9,6 +9,7 @@ import {
 import {
   Router
 } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -37,8 +38,35 @@ export class ForgetPasswordComponent implements OnInit {
 
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void { }
+  forgetpassword() {
+
+    let data = {
+
+      password: this.forgetPasswordForm.value.password,
+
+      confirmPassword: this.forgetPasswordForm.value.confirmPassword,
+
+      answer: this.forgetPasswordForm.value.answer
+
+    }
+
+    console.log(data)
+
+    this.userService.forgetPassword(this.forgetPasswordForm.value.loginId, data).subscribe(res => {
+
+      console.log(res.text)
+
+      this.router.navigate(['/login'])
+
+    }, error => {
+
+      this.router.navigate(['/login'])
+
+    })
+
+  }
 
 }

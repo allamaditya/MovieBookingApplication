@@ -12,7 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
   isLogined: boolean | any = false
+
   loginStatus = ''
+
   error = localStorage.getItem('error')
 
   rolesList: string[] = ['', 'Admin', 'User'];
@@ -25,15 +27,24 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, private routerGuard: RouterGuardService) { }
 
   public getLoginData() {
+
     localStorage.setItem('roles', this.loginForm.value.roles)
+
     if (this.loginForm.value.roles === '') {
+
       alert("Please select role")
+
       this.router.navigate(['/login'])
 
+
+
+
     } else {
+
       this.userService.loginUser(this.loginForm.value).subscribe(res => {
+
         localStorage.setItem('token', res.Token)
-        console.log(res.Token)
+
         this.isLogined = true
 
         localStorage.setItem('isLogined', this.isLogined)
@@ -41,17 +52,21 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('error')
 
         console.log(res)
+
         this.router.navigate(['/home'])
+
+
+
+      }, error => {
+
+        localStorage.setItem('error', error.error)
+
+        this.loginStatus = error.error
 
       })
 
     }
-
-
-
-
   }
-
 
 
 
