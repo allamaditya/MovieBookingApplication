@@ -51,6 +51,8 @@ export class LoginComponent implements OnInit {
 
         localStorage.removeItem('error')
 
+        window.alert("Hi\n")
+
         console.log(res)
 
         this.router.navigate(['/home'])
@@ -62,6 +64,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('error', error.error)
 
         this.loginStatus = error.error
+
+        window.alert("PLease Enter Correct Details \n")
 
       })
 

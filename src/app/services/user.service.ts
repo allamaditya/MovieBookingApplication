@@ -7,9 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  url_register = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service/register'
-  url_login = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service'
-  url_password_reset = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service/'
+  // url_register = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service/register'
+  // url_login = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service'
+  // url_password_reset = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/login-service/'
+  url_register = 'http://localhost:8082/auth/v1/addUser'
+  url_login = 'http://localhost:8082/auth/v1/login'
+  url_password_reset = 'http://localhost:8082/auth/v1/forgetPassword/'
+
   constructor(private http: HttpClient) { }
 
   registerUser(user: User | any): Observable<User> {
@@ -23,12 +27,12 @@ export class UserService {
   }
 
   forgetPassword(userId: any, user: any): Observable<any> {
-
-    return this.http.put<any>(`${this.url_password_reset}${userId}`, user)
-
+    return this.http.put<any>(`${this.url_password_reset}${userId}`, user);
   }
 
+
 }
+
 interface loginResponse {
   Message: any
   Token: any

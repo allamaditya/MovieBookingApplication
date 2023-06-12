@@ -7,11 +7,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
-  getAllMovie_url = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/movieservice';
-  createMovie_url = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/movieservice';
-  deleteMovie_url = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/movieservice/'
+  // getAllMovie_url = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/movieservice';
+  // createMovie_url = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/movieservice';
+  // deleteMovie_url = 'https://utnnwjcwml.execute-api.us-west-2.amazonaws.com/FirstDeploy/movieservice/'
   url = 'http://localhost:8250/api/v1.0/moviebooking/';
-
+  allMovie_url = 'http://localhost:8250/api/v1.0/moviebooking/all';
+  deleteMovie_url = 'http://localhost:8250/api/v1.0/moviebooking/admin/delete'
+  updateMovie_url = 'http://localhost:8250/api/v1.0/moviebooking/admin/Cars2/update'
+  createMovie_url = 'http://localhost:8250/api/v1.0/moviebooking/admin/addmovie'
   constructor(private http: HttpClient) { }
 
   createMovie(movie: Movie | any): Observable<Movie> {
@@ -27,14 +30,14 @@ export class MovieService {
     });
 
 
-    return this.http.get<Movie[]>(this.getAllMovie_url, { headers })
+    return this.http.get<Movie[]>(this.allMovie_url, { headers })
   }
   deleteMovie(id: any): Observable<any> {
     let headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
 
     });
-    return this.http.delete<any>(`${this.deleteMovie_url}${id}`, { headers });
+    return this.http.delete<any>(`${this.deleteMovie_url}/${id}`, { headers });
   }
   updateMovie(movie: any, id: number): Observable<Movie> {
     return this.http.put<Movie>(`${this.url}/${id}`, movie);
