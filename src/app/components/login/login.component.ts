@@ -74,7 +74,12 @@ export class LoginComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
+  ngOnInit() {
+    document.body.className = "selector";
+  }
+
+  ngOnDestroy() {
+    document.body.className = "";
   }
 
 }

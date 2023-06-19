@@ -9,3 +9,10 @@ background: #eee;
 .simple-linear {
     background: linear-gradient(blue, pink);
   }
+
+  .selector {
+    background-image: url("../../../assets/Login.jpeg");
+}
+a{
+  color: hsl(218, 81%, 95%)
+}
